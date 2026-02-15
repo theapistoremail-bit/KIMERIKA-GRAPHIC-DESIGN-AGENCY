@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Start a Project | 2LGA Studio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  background: #ffffff;
+  color: #111;
+  padding: 120px 8%;
+}
+
+h2 {
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  margin-bottom: 20px;
+}
+
+h2 span {
+  color: #d60000;
+}
+
+p {
+  margin-bottom: 50px;
+  font-weight: 300;
+  color: #444;
+}
+
+form {
+  max-width: 700px;
+}
+
+label {
+  font-weight: 500;
+  display: block;
+  margin: 30px 0 15px;
+}
+
+input, textarea, select {
+  width: 100%;
+  padding: 14px;
+  border: 1px solid #ddd;
+  font-size: 1rem;
+}
+
+textarea {
+  min-height: 120px;
+}
+
+.radio-group {
+  display: grid;
+  gap: 10px;
+}
+
+.radio-group label {
+  font-weight: 300;
+  cursor: pointer;
+}
+
+button {
+  margin-top: 40px;
+  padding: 15px 40px;
+  border: 2px solid #d60000;
+  background: transparent;
+  color: #d60000;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+button:hover {
+  background: #d60000;
+  color: white;
+}
+</style>
+</head>
+
+<body>
+
+<h2>Start a <span>Project</span></h2>
+<p>
+Tell us about your vision. The more clarity, the better the result.
+</p>
+
+<form>
+
+<label>Your Name</label>
+<input type="text" required>
+
+<label>Email</label>
+<input type="email" required>
+
+<label>Type of Project</label>
+<select required>
+  <option>Visual Identity</option>
+  <option>3D / Immersive Experience</option>
+  <option>Digital Strategy</option>
+  <option>Experimental Collaboration</option>
+</select>
+
+<label>Estimated Budget</label>
+<select required>
+  <option>$1k – $3k</option>
+  <option>$3k – $8k</option>
+  <option>$8k+</option>
+  <option>Let’s define scope</option>
+</select>
+
+<label>Timeline</label>
+<select required>
+  <option>Urgent (2–4 weeks)</option>
+  <option>1–2 months</option>
+  <option>Flexible</option>
+</select>
+
+<label>Project Description</label>
+<textarea placeholder="Describe your idea..."></textarea>
+
+<button type="submit">Submit Inquiry</button>
+
+</form>
+
+</body>
+</html>

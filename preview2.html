@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Client Dashboard | 2LGA Studio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+body{
+  font-family:'Inter',sans-serif;
+  background:#fff;
+  margin:0;
+  display:flex;
+}
+
+.sidebar{
+  width:240px;
+  border-right:1px solid #eee;
+  padding:40px 25px;
+  height:100vh;
+  position:fixed;
+}
+
+.sidebar a{
+  display:block;
+  margin-bottom:20px;
+  text-decoration:none;
+  color:#444;
+}
+
+.sidebar a:hover{color:#d60000;}
+
+.main{
+  margin-left:240px;
+  padding:80px;
+  width:100%;
+}
+
+h1 span{color:#d60000;}
+
+.preview-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:30px;
+  margin-top:40px;
+}
+
+.preview-grid img{
+  width:100%;
+  height:350px;
+  object-fit:cover;
+  border:1px solid #eee;
+}
+
+textarea{
+  width:100%;
+  padding:15px;
+  margin-top:40px;
+  border:1px solid #ddd;
+}
+
+.buttons{
+  margin-top:30px;
+  display:flex;
+  gap:20px;
+  flex-wrap:wrap;
+}
+
+button{
+  padding:14px 30px;
+  border:2px solid #d60000;
+  background:transparent;
+  color:#d60000;
+  cursor:pointer;
+  transition:.3s;
+}
+
+button:hover{
+  background:#d60000;
+  color:#fff;
+}
+</style>
+</head>
+
+<body>
+
+<div class="sidebar">
+  <h3>2LGA Studio</h3>
+  <a href="#">Overview</a>
+  <a href="#">My Project</a>
+  <a href="#">Invoices</a>
+  <a href="#">Logout</a>
+</div>
+
+<div class="main">
+
+<h1>Project <span>Preview</span></h1>
+
+<p>Below is your AI-generated visual direction.  
+You may refine the concept before approval.</p>
+
+<div class="preview-grid" id="gallery">
+  <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee">
+  <img src="https://images.unsplash.com/photo-1492724441997-5dc865305da7">
+  <img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429">
+</div>
+
+<textarea id="promptInput" placeholder="Refine your visual direction..."></textarea>
+
+<div class="buttons">
+  <button onclick="regenerate()">Regenerate</button>
+  <button onclick="approve()">Approve</button>
+  <button onclick="downloadFiles()">Download Preview</button>
+  <button onclick="proceedToPayment()">Proceed to Payment</button>
+</div>
+
+</div>
+
+<script>
+function regenerate(){
+  alert("New visual concept is being generated...");
+  // Aquí iría conexión real a OpenAI Image API
+}
+
+function approve(){
+  alert("Concept Approved. Ready for development.");
+}
+
+function downloadFiles(){
+  alert("Download package prepared.");
+}
+
+function proceedToPayment(){
+  window.location.href="checkout.html";
+}
+</script>
+
+</body>
+</html>

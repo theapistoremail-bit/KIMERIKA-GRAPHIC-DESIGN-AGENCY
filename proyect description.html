@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Proposal | 2LGA Studio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  background: #ffffff;
+  color: #111;
+  padding: 120px 8%;
+}
+
+h2 {
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  margin-bottom: 20px;
+}
+
+h2 span {
+  color: #d60000;
+}
+
+.generator {
+  margin-top: 60px;
+  max-width: 900px;
+}
+
+textarea {
+  width: 100%;
+  height: 150px;
+  padding: 15px;
+  border: 1px solid #ddd;
+  margin-bottom: 30px;
+  font-size: 1rem;
+}
+
+button {
+  padding: 15px 40px;
+  border: 2px solid #d60000;
+  background: transparent;
+  color: #d60000;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+button:hover {
+  background: #d60000;
+  color: white;
+}
+
+.output {
+  margin-top: 60px;
+  padding: 40px;
+  border: 1px solid #eee;
+  display: none;
+}
+
+.price {
+  margin-top: 20px;
+  font-weight: 600;
+  color: #d60000;
+}
+</style>
+</head>
+
+<body>
+
+<h2>AI <span>Project Vision</span></h2>
+
+<div class="generator">
+  <textarea id="inputText" placeholder="Briefly describe your project vision..."></textarea>
+  <button onclick="generateProposal()">Generate AI Proposal</button>
+
+  <div class="output" id="outputBox">
+    <h3>Preliminary Creative Direction</h3>
+    <p id="proposalText"></p>
+    <div class="price" id="priceEstimate"></div>
+  </div>
+</div>
+
+<script>
+function generateProposal() {
+  const input = document.getElementById("inputText").value;
+  const outputBox = document.getElementById("outputBox");
+  const proposalText = document.getElementById("proposalText");
+  const priceEstimate = document.getElementById("priceEstimate");
+
+  if(input.trim() === "") {
+    alert("Please describe your vision.");
+    return;
+  }
+
+  // Simulación IA inteligente
+  const directions = [
+    "We recommend a minimal and high-contrast visual system focused on clarity and authority.",
+    "A cinematic interactive experience with subtle motion and immersive storytelling.",
+    "A futuristic digital environment integrating AI-driven content dynamics.",
+    "An editorial and elegant layout emphasizing structured visual hierarchy."
+  ];
+
+  const budgets = [
+    "$3,000 – $6,000 Estimated Range",
+    "$6,000 – $12,000 Estimated Range",
+    "$12,000+ Premium Development Scope"
+  ];
+
+  const randomDirection = directions[Math.floor(Math.random() * directions.length)];
+  const randomBudget = budgets[Math.floor(Math.random() * budgets.length)];
+
+  proposalText.innerText = randomDirection + " Based on your description: \"" + input + "\" this project would focus on building a scalable and immersive digital presence.";
+
+  priceEstimate.innerText = randomBudget;
+
+  outputBox.style.display = "block";
+}
+</script>
+
+</body>
+</html>

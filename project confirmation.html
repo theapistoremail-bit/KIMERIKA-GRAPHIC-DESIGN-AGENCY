@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Project Confirmed | 2LGA Studio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  background: #ffffff;
+  color: #111;
+  padding: 100px 8%;
+}
+
+.container {
+  max-width: 900px;
+  margin: auto;
+}
+
+h1 {
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  margin-bottom: 20px;
+}
+
+h1 span {
+  color: #d60000;
+}
+
+p {
+  margin-bottom: 25px;
+  color: #444;
+  line-height: 1.6;
+}
+
+.summary-box {
+  margin-top: 40px;
+  padding: 40px;
+  border: 1px solid #eee;
+}
+
+.status {
+  margin-top: 20px;
+  font-weight: 600;
+  color: #d60000;
+}
+
+.actions {
+  margin-top: 50px;
+  display: grid;
+  gap: 20px;
+}
+
+button {
+  padding: 15px 40px;
+  border: 2px solid #d60000;
+  background: transparent;
+  color: #d60000;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+button:hover {
+  background: #d60000;
+  color: white;
+}
+
+.alt-box {
+  margin-top: 40px;
+  padding: 30px;
+  border: 1px dashed #ccc;
+  display: none;
+}
+
+.checkbox-group {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+input[type="checkbox"] {
+  accent-color: #d60000;
+  width: 18px;
+  height: 18px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Project <span>Confirmed</span></h1>
+
+<p>
+Your payment has been successfully processed.
+Your AI-generated project package has been automatically delivered to your registered email address.
+</p>
+
+<div class="summary-box">
+  <h3>What Happens Next</h3>
+  <p>
+  • Full creative brief sent via email  
+  • Secure project file created in our system  
+  • Creative team review begins within 24–48 hours  
+  • Direct contact initiated from our international studio
+  </p>
+
+  <div class="status">
+    Status: Proposal Delivered ✓
+  </div>
+</div>
+
+<div class="actions">
+  <button onclick="confirmReceived()">I Have Received the Email ✓</button>
+  <button onclick="showAlternative()">I Have Not Received It</button>
+</div>
+
+<div class="alt-box" id="altBox">
+  <p>
+  Please wait 5–10 minutes and check your spam or promotions folder.
+  If the email is still not visible, confirm below and our system will automatically resend your package.
+  </p>
+
+  <div class="checkbox-group">
+    <input type="checkbox" id="resendCheck">
+    <label for="resendCheck">Resend Project Package</label>
+  </div>
+
+  <button onclick="resendPackage()">Confirm & Resend</button>
+</div>
+
+</div>
+
+<script>
+function confirmReceived() {
+  alert("Thank you. Our team will contact you shortly.");
+}
+
+function showAlternative() {
+  document.getElementById("altBox").style.display = "block";
+}
+
+function resendPackage() {
+  const checked = document.getElementById("resendCheck").checked;
+  if(!checked) {
+    alert("Please confirm resend option.");
+    return;
+  }
+
+  alert("Your package has been resent. Please check your inbox.");
+}
+</script>
+
+</body>
+</html>

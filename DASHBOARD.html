@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Client Dashboard | 2LGA Studio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  background: #ffffff;
+  color: #111;
+  display: flex;
+}
+
+.sidebar {
+  width: 260px;
+  height: 100vh;
+  border-right: 1px solid #eee;
+  padding: 40px 30px;
+  position: fixed;
+}
+
+.sidebar h2 {
+  margin-bottom: 40px;
+  font-size: 1.4rem;
+}
+
+.sidebar a {
+  display: block;
+  margin-bottom: 20px;
+  text-decoration: none;
+  color: #444;
+  font-weight: 400;
+  transition: 0.3s;
+}
+
+.sidebar a:hover {
+  color: #d60000;
+}
+
+.main {
+  margin-left: 260px;
+  padding: 80px;
+  width: 100%;
+}
+
+.header h1 {
+  font-size: 2.5rem;
+}
+
+.status-box {
+  margin-top: 40px;
+  padding: 30px;
+  border: 1px solid #eee;
+}
+
+.status-indicator {
+  margin-top: 15px;
+  font-weight: 600;
+  color: #d60000;
+}
+
+.section {
+  margin-top: 60px;
+}
+
+.section h3 {
+  margin-bottom: 20px;
+}
+
+.file-list div {
+  padding: 15px;
+  border: 1px solid #eee;
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.file-list div:hover {
+  border-color: #d60000;
+}
+
+.timeline-step {
+  margin-bottom: 15px;
+}
+
+.progress-bar {
+  height: 6px;
+  background: #eee;
+  margin-top: 10px;
+  position: relative;
+}
+
+.progress {
+  height: 100%;
+  width: 60%;
+  background: #d60000;
+}
+</style>
+</head>
+
+<body>
+
+<div class="sidebar">
+  <h2>2LGA Studio</h2>
+  <a href="#">Overview</a>
+  <a href="#">Project Files</a>
+  <a href="#">Timeline</a>
+  <a href="#">Invoices</a>
+  <a href="#">Messages</a>
+  <a href="#">Settings</a>
+</div>
+
+<div class="main">
+
+  <div class="header">
+    <h1>Welcome, Client</h1>
+  </div>
+
+  <div class="status-box">
+    <h3>Project Status</h3>
+    <p>Your immersive digital experience is currently in development.</p>
+    <div class="status-indicator">
+      Phase 2 of 4 — Design & Structure
+    </div>
+    <div class="progress-bar">
+      <div class="progress"></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h3>Project Files</h3>
+    <div class="file-list">
+      <div>Creative Brief.pdf</div>
+      <div>Initial Moodboard.zip</div>
+      <div>Wireframe Concept.fig</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h3>Timeline</h3>
+    <div class="timeline-step">✔ Strategy Completed</div>
+    <div class="timeline-step">✔ Concept Approved</div>
+    <div class="timeline-step">⏳ Design In Progress</div>
+    <div class="timeline-step">◻ Development Pending</div>
+  </div>
+
+  <div class="section">
+    <h3>Next Action</h3>
+    <p>Please review the current design draft and approve to proceed to development phase.</p>
+  </div>
+
+</div>
+
+</body>
+</html>

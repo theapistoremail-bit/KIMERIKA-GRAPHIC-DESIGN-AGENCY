@@ -72,9 +72,20 @@ button:hover {
   color: #d60000;
 }
 
+/* NUEVO BOTÓN */
 .continue-btn {
-  margin-top: 30px;
   display: inline-block;
+  margin-top: 30px;
+  padding: 15px 40px;
+  border: 2px solid #111;
+  color: #111;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+.continue-btn:hover {
+  background: #111;
+  color: white;
 }
 </style>
 </head>
@@ -92,8 +103,11 @@ button:hover {
     <p id="proposalText"></p>
     <div class="price" id="priceEstimate"></div>
 
-    <!-- Nuevo botón -->
-    <button class="continue-btn" onclick="continueNext()">Continue to Next Phase</button>
+    <!-- BOTÓN CAMBIADO -->
+    <a href="preview2.html" class="continue-btn">
+      Continue to Next Phase
+    </a>
+
   </div>
 </div>
 
@@ -125,17 +139,13 @@ function generateProposal() {
   const randomDirection = directions[Math.floor(Math.random() * directions.length)];
   const randomBudget = budgets[Math.floor(Math.random() * budgets.length)];
 
-  proposalText.innerText = randomDirection + " Based on your description: \"" + input + "\" this project would focus on building a scalable and immersive digital presence.";
+  proposalText.innerText = randomDirection + 
+  " Based on your description: \"" + input + 
+  "\" this project would focus on building a scalable and immersive digital presence.";
+
   priceEstimate.innerText = randomBudget;
 
   outputBox.style.display = "block";
-}
-
-function continueNext() {
-  alert("Proceeding to the next phase...");
-  
-  // Si quieres redirigir a otra página, descomenta esto:
-  // window.location.href = "next-phase.html";
 }
 </script>
 

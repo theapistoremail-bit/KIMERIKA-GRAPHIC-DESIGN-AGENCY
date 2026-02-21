@@ -71,6 +71,11 @@ button:hover {
   font-weight: 600;
   color: #d60000;
 }
+
+.continue-btn {
+  margin-top: 30px;
+  display: inline-block;
+}
 </style>
 </head>
 
@@ -86,6 +91,9 @@ button:hover {
     <h3>Preliminary Creative Direction</h3>
     <p id="proposalText"></p>
     <div class="price" id="priceEstimate"></div>
+
+    <!-- Nuevo botón -->
+    <button class="continue-btn" onclick="continueNext()">Continue to Next Phase</button>
   </div>
 </div>
 
@@ -101,7 +109,6 @@ function generateProposal() {
     return;
   }
 
-  // Simulación IA inteligente
   const directions = [
     "We recommend a minimal and high-contrast visual system focused on clarity and authority.",
     "A cinematic interactive experience with subtle motion and immersive storytelling.",
@@ -119,10 +126,16 @@ function generateProposal() {
   const randomBudget = budgets[Math.floor(Math.random() * budgets.length)];
 
   proposalText.innerText = randomDirection + " Based on your description: \"" + input + "\" this project would focus on building a scalable and immersive digital presence.";
-
   priceEstimate.innerText = randomBudget;
 
   outputBox.style.display = "block";
+}
+
+function continueNext() {
+  alert("Proceeding to the next phase...");
+  
+  // Si quieres redirigir a otra página, descomenta esto:
+  // window.location.href = "next-phase.html";
 }
 </script>
 

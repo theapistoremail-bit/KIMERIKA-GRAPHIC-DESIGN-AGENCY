@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Checkout | 2LGA Studio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  background: #ffffff;
+  color: #111;
+  padding: 120px 8%;
+}
+
+h2 {
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+}
+
+.summary {
+  margin-bottom: 40px;
+}
+
+.summary p {
+  margin-bottom: 10px;
+}
+
+.total {
+  font-weight: 600;
+  margin-top: 20px;
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 40px;
+  padding: 15px 40px;
+  border: 2px solid #d60000;
+  background: transparent;
+  color: #d60000;
+  font-weight: 500;
+  text-decoration: none;
+  transition: 0.3s ease;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: #d60000;
+  color: white;
+}
+</style>
+</head>
+
+<body>
+
+<h2>Project Summary</h2>
+
+<div class="summary" id="summary"></div>
+
+<div class="total" id="totalPrice"></div>
+
+<button class="btn">Proceed to Payment</button>
+
+<script>
+const data = JSON.parse(localStorage.getItem("projectSelections")) || [];
+
+const summaryContainer = document.getElementById("summary");
+let total = 0;
+
+const pricing = {
+  "Increase Brand Authority": 500,
+  "Launch a New Product": 700,
+  "Build Digital Presence": 400,
+  "Interactive Web": 1000,
+  "3D Environment": 2000,
+  "AI-Driven Experience": 3000
+};
+
+data.forEach(item => {
+  const p = document.createElement("p");
+  p.textContent = item;
+  summaryContainer.appendChild(p);
+
+  if (pricing[item]) {
+    total += pricing[item];
+  }
+});
+
+document.getElementById("totalPrice").textContent = "Estimated Investment: $" + total + " USD";
+</script>
+
+</body>
+</html>

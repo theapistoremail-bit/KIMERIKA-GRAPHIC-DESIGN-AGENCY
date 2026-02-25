@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Join 2LGA Studio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Inter', sans-serif;
+}
+
+body{
+background:#ffffff;
+color:#111;
+display:flex;
+justify-content:center;
+align-items:center;
+min-height:100vh;
+padding:40px;
+}
+
+/* Container */
+
+.container{
+max-width:500px;
+width:100%;
+border:1px solid #eee;
+padding:50px;
+text-align:center;
+}
+
+/* Title */
+
+h1{
+font-size:2rem;
+margin-bottom:15px;
+}
+
+h1 span{
+color:#d60000;
+}
+
+/* Description */
+
+p{
+font-weight:300;
+margin-bottom:30px;
+opacity:0.7;
+}
+
+/* Input */
+
+input{
+width:100%;
+padding:14px;
+border:1px solid #ccc;
+margin-bottom:20px;
+font-size:1rem;
+}
+
+/* Button */
+
+button{
+width:100%;
+padding:15px;
+border:2px solid #d60000;
+background:transparent;
+color:#d60000;
+font-weight:500;
+cursor:pointer;
+transition:0.3s ease;
+}
+
+button:hover{
+background:#d60000;
+color:white;
+}
+
+/* Message */
+
+#message{
+margin-top:20px;
+font-weight:500;
+}
+
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<h1>Create Your <span>Studio Account</span></h1>
+
+<p>
+Access project tracking, AI proposals, saved designs,
+and exclusive agency tools.
+</p>
+
+<input type="text" id="name" placeholder="Full Name">
+<input type="email" id="email" placeholder="Email Address">
+<input type="password" id="password" placeholder="Create Password">
+
+<button onclick="createAccount()">Create Account</button>
+
+<div id="message"></div>
+
+</div>
+
+<script>
+
+function createAccount(){
+
+const name = document.getElementById("name").value;
+const email = document.getElementById("email").value;
+const password = document.getElementById("password").value;
+const message = document.getElementById("message");
+
+if(name === "" || email === "" || password === ""){
+message.style.color = "red";
+message.innerText = "Please complete all fields.";
+return;
+}
+
+if(!email.includes("@")){
+message.style.color = "red";
+message.innerText = "Enter a valid email.";
+return;
+}
+
+/* Aquí después conectamos backend */
+
+message.style.color = "green";
+message.innerText = "Account created successfully!";
+
+console.log({
+name,
+email,
+password
+});
+
+}
+
+</script>
+
+</body>
+</html>

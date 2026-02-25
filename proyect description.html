@@ -8,145 +8,227 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
 
 <style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Inter', sans-serif;
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Inter', sans-serif;
 }
 
-body {
-  background: #ffffff;
-  color: #111;
-  padding: 120px 8%;
+body{
+background:#ffffff;
+color:#111;
+padding:120px 8%;
 }
 
-h2 {
-  font-size: clamp(2.5rem, 5vw, 3.5rem);
-  margin-bottom: 20px;
+h2{
+font-size:clamp(2.5rem,5vw,3.5rem);
+margin-bottom:20px;
 }
 
-h2 span {
-  color: #d60000;
+h2 span{
+color:#d60000;
 }
 
-.generator {
-  margin-top: 60px;
-  max-width: 900px;
+.generator{
+margin-top:60px;
+max-width:1000px;
 }
 
-textarea {
-  width: 100%;
-  height: 150px;
-  padding: 15px;
-  border: 1px solid #ddd;
-  margin-bottom: 30px;
-  font-size: 1rem;
+textarea{
+width:100%;
+height:120px;
+padding:15px;
+border:1px solid #ddd;
+margin-bottom:20px;
+font-size:1rem;
 }
 
-button {
-  padding: 15px 40px;
-  border: 2px solid #d60000;
-  background: transparent;
-  color: #d60000;
-  font-weight: 500;
-  cursor: pointer;
-  transition: 0.3s ease;
+.checklist{
+margin-bottom:30px;
+display:grid;
+gap:10px;
 }
 
-button:hover {
-  background: #d60000;
-  color: white;
+.checklist label{
+display:flex;
+gap:10px;
+font-weight:300;
 }
 
-.output {
-  margin-top: 60px;
-  padding: 40px;
-  border: 1px solid #eee;
-  display: none;
+button{
+padding:15px 40px;
+border:2px solid #d60000;
+background:transparent;
+color:#d60000;
+cursor:pointer;
+transition:0.3s;
 }
 
-.price {
-  margin-top: 20px;
-  font-weight: 600;
-  color: #d60000;
+button:hover{
+background:#d60000;
+color:white;
 }
 
-/* NUEVO BOTÓN */
-.continue-btn {
-  display: inline-block;
-  margin-top: 30px;
-  padding: 15px 40px;
-  border: 2px solid #111;
-  color: #111;
-  text-decoration: none;
-  transition: 0.3s ease;
+.output{
+margin-top:60px;
+padding:40px;
+border:1px solid #eee;
+display:none;
 }
 
-.continue-btn:hover {
-  background: #111;
-  color: white;
+.price{
+margin-top:20px;
+font-weight:600;
+color:#d60000;
 }
+
+/* ===== NUEVA ARQUITECTURA ===== */
+
+.preview-grid{
+margin-top:40px;
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:30px;
+}
+
+.panel{
+border:1px solid #eee;
+padding:20px;
+min-height:250px;
+background:#fafafa;
+}
+
+.panel h4{
+margin-bottom:15px;
+}
+
+/* Code editor estilo básico */
+.code-box{
+background:#111;
+color:#0f0;
+padding:15px;
+font-family:monospace;
+white-space:pre-wrap;
+overflow:auto;
+height:200px;
+}
+
 </style>
 </head>
-
 <body>
 
-<h2>AI <span>Project Vision</span></h2>
+<h2>AI <span>Project Vision Engine</span></h2>
 
 <div class="generator">
-  <textarea id="inputText" placeholder="Briefly describe your project vision..."></textarea>
-  <button onclick="generateProposal()">Generate AI Proposal</button>
 
-  <div class="output" id="outputBox">
-    <h3>Preliminary Creative Direction</h3>
-    <p id="proposalText"></p>
-    <div class="price" id="priceEstimate"></div>
+<textarea id="inputText" placeholder="Describe your project vision..."></textarea>
 
-    <!-- BOTÓN CAMBIADO -->
-    <a href="preview2.html" class="continue-btn">
-      Continue to Next Phase
-    </a>
+<!-- CHECKLIST -->
+<div class="checklist">
+<label><input type="checkbox" value="Branding"> Branding</label>
+<label><input type="checkbox" value="Web"> Web Experience</label>
+<label><input type="checkbox" value="3D"> 3D Immersive</label>
+<label><input type="checkbox" value="Animation"> Animation</label>
+</div>
 
-  </div>
+<button onclick="generateProposal()">Generate AI Proposal</button>
+
+<div class="output" id="outputBox">
+
+<h3>Refined Creative Direction</h3>
+
+<p id="proposalText"></p>
+
+<div class="price" id="priceEstimate"></div>
+
+<!-- NUEVA SECCIÓN DE VISUALIZACIÓN -->
+<div class="preview-grid">
+
+<div class="panel">
+<h4>Visual Preview</h4>
+<div id="visualPreview">
+No visual generated yet.
+</div>
+</div>
+
+<div class="panel">
+<h4>Code Preview</h4>
+<div class="code-box" id="codePreview">
+No code generated yet.
+</div>
+</div>
+
+</div>
+
+<a href="preview2.html" style="margin-top:40px; display:inline-block; padding:15px 40px; border:2px solid #111; text-decoration:none; color:#111;">
+Continue to Next Phase
+</a>
+
+</div>
 </div>
 
 <script>
-function generateProposal() {
-  const input = document.getElementById("inputText").value;
-  const outputBox = document.getElementById("outputBox");
-  const proposalText = document.getElementById("proposalText");
-  const priceEstimate = document.getElementById("priceEstimate");
 
-  if(input.trim() === "") {
-    alert("Please describe your vision.");
-    return;
-  }
+function generateProposal(){
 
-  const directions = [
-    "We recommend a minimal and high-contrast visual system focused on clarity and authority.",
-    "A cinematic interactive experience with subtle motion and immersive storytelling.",
-    "A futuristic digital environment integrating AI-driven content dynamics.",
-    "An editorial and elegant layout emphasizing structured visual hierarchy."
-  ];
+const input = document.getElementById("inputText").value;
+const outputBox = document.getElementById("outputBox");
+const proposalText = document.getElementById("proposalText");
+const priceEstimate = document.getElementById("priceEstimate");
+const visualPreview = document.getElementById("visualPreview");
+const codePreview = document.getElementById("codePreview");
 
-  const budgets = [
-    "$3,000 – $6,000 Estimated Range",
-    "$6,000 – $12,000 Estimated Range",
-    "$12,000+ Premium Development Scope"
-  ];
-
-  const randomDirection = directions[Math.floor(Math.random() * directions.length)];
-  const randomBudget = budgets[Math.floor(Math.random() * budgets.length)];
-
-  proposalText.innerText = randomDirection + 
-  " Based on your description: \"" + input + 
-  "\" this project would focus on building a scalable and immersive digital presence.";
-
-  priceEstimate.innerText = randomBudget;
-
-  outputBox.style.display = "block";
+if(input.trim()===""){
+alert("Please describe your vision.");
+return;
 }
+
+/* ===== CAPTURAR CHECKLIST ===== */
+
+let selected = [];
+document.querySelectorAll(".checklist input:checked").forEach(el=>{
+selected.push(el.value);
+});
+
+/* ===== ENGINE DE DIRECCIÓN ===== */
+
+let refined = "Project Context:\n" + input + "\n\nModules Included:\n" + selected.join(", ");
+
+if(selected.includes("3D")){
+visualPreview.innerHTML = `
+<iframe src="https://threejs.org/examples/" 
+width="100%" height="200px"></iframe>
+`;
+codePreview.textContent = "// 3D Module Activated\n// Three.js scene structure ready.";
+}
+
+if(selected.includes("Web")){
+codePreview.textContent += "\n\n// Web Structure Generated\n<html>\n<body>\n  <h1>Project Website</h1>\n</body>\n</html>";
+}
+
+if(selected.includes("Branding")){
+refined += "\nBrand System: Minimal + Strong Typography + Red Accent.";
+}
+
+if(selected.includes("Animation")){
+refined += "\nMotion: Smooth transitions + micro interactions.";
+}
+
+/* ===== PRICE LOGIC SIMPLE ===== */
+
+let base = 3000;
+let multiplier = selected.length * 1000;
+let total = base + multiplier;
+
+proposalText.innerText = refined;
+
+priceEstimate.innerText = "Estimated Investment: $" + total + " USD";
+
+outputBox.style.display = "block";
+
+}
+
 </script>
 
 </body>

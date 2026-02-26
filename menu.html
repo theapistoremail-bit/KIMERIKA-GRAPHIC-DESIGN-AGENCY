@@ -128,7 +128,35 @@ button:hover {
 <a href="proyect description.html">
 <button >Continue →</button>
 </a>
+  <script>
+  function generateProposal() {
+    const selections = [];
+    document.querySelectorAll("input[type='checkbox']:checked").forEach(el => {
+      selections.push(el.parentElement.textContent.trim());
+    });
+
+    const prompt = document.getElementById("inputText").value.trim();
+
+    if (prompt === "") {
+      alert("Por favor, describe tu visión del proyecto.");
+      return;
+    }
+
+    // Unimos las selecciones y el prompt
+    const fullPrompt = `
+      Objetivo: ${selections.join(", ")}.
+      Detalle del proyecto: ${prompt}.
+    `;
+
+    // Guardamos el prompt en localStorage para la siguiente página
+    localStorage.setItem("fullPrompt", fullPrompt);
+
+    // Redirigimos a la siguiente página donde se hará la IA
+    window.location.href = "proyect description.html";
+  }
+</script>
 </body>
 </html>
+
 
 

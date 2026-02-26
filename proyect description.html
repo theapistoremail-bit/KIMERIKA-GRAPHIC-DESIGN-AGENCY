@@ -244,75 +244,6 @@ alert("Please describe your vision.");
 return;
 }
 
-/* ===== RECUPERAR CONTEXTO DE PÁGINA 1 ===== */
-
-const previousSelections = localStorage.getItem("projectSelections") || "";
-
-/* ===== CAPTURAR CHECKLIST ACTUAL ===== */
-
-let selected = [];
-document.querySelectorAll(".checklist input:checked").forEach(el=>{
-selected.push(el.value);
-});
-
-/* ===== CONSTRUIR PROMPT COMPLETO ===== */
-
-const fullPrompt = `
-Client Configuration:
-${previousSelections}
-
-User Vision:
-${input}
-
-Requested Modules:
-${selected.join(", ")}
-
-Refine this into a professional creative direction, 
-technical breakdown, and execution strategy.
-`;
-
-/* ===== LLAMADA AL BACKEND ===== */
-
-try{
-
-const response = await fetch("/api/refine-prompt", {
-method: "POST",
-headers: {
-"Content-Type": "application/json"
-},
-body: JSON.stringify({ prompt: fullPrompt })
-});
-
-const data = await response.json();
-
-outputBox.style.display = "block";
-proposalText.innerText = data.response;
-
-/* ===== EJEMPLO DE PRECIO DINÁMICO ===== */
-
-let basePrice = 1200;
-if(selected.includes("3D")) basePrice += 2000;
-if(selected.includes("Animation")) basePrice += 1000;
-if(selected.includes("Web")) basePrice += 1500;
-
-priceEstimate.innerText = "Estimated Investment: $" + basePrice;
-
-/* ===== PREVIEW DINÁMICO SIMPLE ===== */
-
-if(selected.includes("3D")){
-visualPreview.innerHTML = `
-<iframe src="https://threejs.org/examples/" 
-width="100%" height="200px"></iframe>
-`;
-codePreview.textContent = "// 3D Module Activated\n// Three.js structure generated.";
-}
-
-}catch(error){
-console.error(error);
-alert("Error connecting to AI engine.");
-}
-
-}
 
 </script>
 
@@ -320,4 +251,5 @@ alert("Error connecting to AI engine.");
 
 </body>
 </html>
+
 
